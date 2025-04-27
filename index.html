@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <head>
+    <style>
+        /* Global Styles */
+        body.fashion-company-body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: rgb(255, 255, 255);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .fashion-header {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start; /* Align items at the top */
+            padding: 1rem 0.5rem;
+            z-index: 2;
+        }
+
+        .fashion-header__navigation {
+            display: flex;
+            align-items: center; /* Ensures the nav links are aligned at the top */
+            gap: 20px;
+        }
+
+        .fashion-header__nav-link {
+            margin: 0;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .fashion-header__nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -4px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+
+        .fashion-header__nav-link:hover {
+            color: #ccc;
+        }
+
+        .fashion-header__nav-link:hover::after {
+            width: 100%;
+        }
+
+        .fashion-header__contact-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px dashed white;
+            border-radius: 20px;
+            color: white;
+            background: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .fashion-header__contact-btn:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section Styles */
+        .fashion-hero {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            overflow: hidden;
+            padding-left: 5%;
+            height: 100vh; /* Full height of the screen */
+        }
+
+        .fashion-hero__video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.3; /* Slight transparency to enhance text visibility */
+        }
+
+        .fashion-hero__text-container {
+            position: relative;
+            z-index: 1;
+            max-width: 50%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .fashion-hero__text-container h1 {
+            font-size: 4rem;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .fashion-hero__text-container p {
+            margin: 2rem 0;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .fashion-hero__learn-more-btn {
+            padding: 0.75rem 2rem;
+            border: 2px dashed white;
+            border-radius: 10px;
+            background: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fashion-hero__learn-more-btn:hover {
+            background-color: white;
+            color: black;
+            transform: scale(1.05);
+        }
+
+        /* Dropdown Styles */
+        .fashion-dropdown {
+            position: relative;
+        }
+
+        .fashion-dropdown__content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .fashion-dropdown:hover .fashion-dropdown__content {
+            display: block;
+        }
+
+        .fashion-dropdown__content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+        .fashion-dropdown__content a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body class="fashion-company-body">
+
+    <!-- Header Section -->
+    <header class="fashion-header">
+        <div><img src="https://via.placeholder.com/60x60?text=irc" alt="irc logo"></div>
+        <nav class="fashion-header__navigation">
+            <a href="#menu" class="fashion-header__nav-link">MENU</a>
+            <a href="#about-us" class="fashion-header__nav-link">ABOUT US</a>
+            <a href="#contact-us" class="fashion-header__nav-link">CONTACT US</a>
+            <div class="fashion-dropdown">
+                <a href="#" class="fashion-header__nav-link">PRODUCTS</a>
+                <div class="fashion-dropdown__content">
+                    <a href="#corporate-uniform">Corporate Uniform</a>
+                    <a href="#hotel-uniform">Hotel Uniform</a>
+                    <a href="#spa-saloon-uniform">Spa & Saloon Uniform</a>
+                    <a href="#industrial-uniform">Industrial Uniform</a>
+                    <a href="#security-uniform">Security Uniform</a>
+                    <a href="#others">Others</a>
+                </div>
+            </div>
+        </nav>
+        <button class="fashion-header__contact-btn">CONTACT US</button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="fashion-hero">
+        <video class="fashion-hero__video-background" src="https://www.w3schools.com/html/mov_bbb.mp4" autoplay loop muted></video>
+        <div class="fashion-hero__text-container">
+            <h1>Threading together the future of circular fashion</h1>
+            <p>We’ve pioneered technology that returns polycotton waste back to the raw materials from which it was made, so your favorite fashion brands can reuse fibers and reduce harm to the Earth in the process.</p>
+            <button class="fashion-hero__learn-more-btn">LEARN MORE</button>
+        </div>
+    </section>
+
+    <script src="js/main.js"></script>
+    <style>
+        .customizer-body-unique-class {
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          height: 100vh;
+          background-color: #ffffff;
+          font-size: 18px;
+        }
+    
+        .text-black-enhanced-style * {
+          color: #000000 !important;
+        }
+    
+        .label-text-black-override {
+          color: #000000 !important;
+          font-size: 20px;
+        }
+    
+        .shirt-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          margin-bottom: 20px;
+        }
+    
+        .shirt-wrapper {
+          position: relative;
+          display: inline-block;
+          background-color: #ffffff;
+        }
+    
+        canvas.color-canvas {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 0;
+        }
+    
+        .shirt-base {
+          position: relative;
+          z-index: 1;
+          display: block;
+        }
+    
+        .shirt-logo {
+          position: absolute;
+          width: 100px;
+          height: auto;
+          max-width: 150px;
+          max-height: 150px;
+          z-index: 2;
+          cursor: move;
+          resize: both;
+          overflow: hidden;
+          border: 1px dashed #ccc;
+          background-color: white;
+          transition: transform 0.2s ease, background-color 0.3s ease;
+        }
+    
+        .customizer-controls-advanced {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          margin-top: 20px;
+        }
+    
+        input[type="color"], input[type="file"], button.save-button-download {
+          padding: 10px;
+          font-size: 18px;
+          border: none;
+          border-radius: 8px;
+          background-color: #f0f0f0;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          transition: all 0.3s ease;
+          cursor: pointer;
+          color: #000000;
+        }
+    
+        input[type="color"]:hover, input[type="file"]:hover, button.save-button-download:hover {
+          background-color: #e0e0e0;
+          transform: scale(1.05);
+        }
+    
+        .customize-text-info {
+          margin-right: 40px;
+          text-align: left;
+          font-size: 24px;
+          line-height: 1.6;
+          color: #000000;
+          transition: color 0.3s ease;
+        }
+    
+        .customize-text-info:hover {
+          color: #555;
+        }
+    
+        .shirt-layout-wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 40px;
+        }
+      </style>
+    </head>
+    <body class="customizer-body-unique-class text-black-enhanced-style">
+      <div class="shirt-layout-wrapper">
+        <div class="customize-text-info">
+          <div>Customize</div>
+          <div>by</div>
+          <div>yourself...</div>
+        </div>
+    
+        <div class="shirt-container">
+          <div class="shirt-wrapper" id="shirtWrapper">
+            <canvas id="colorCanvas" class="color-canvas"></canvas>
+            <img id="shirtImage" class="shirt-base" crossorigin="anonymous" src="https://ourcodeworld.com/public-media/gallery/gallery-5d5afd3f1c7d6.png" alt="Shirt Base">
+          </div>
+        </div>
+      </div>
+    
+      <div class="customizer-controls-advanced">
+        <label for="colorPicker" class="label-text-black-override">Choose Shirt Color:</label>
+        <input type="color" id="colorPicker" value="#ffffff" />
+    
+        <label for="fileUpload" class="label-text-black-override">Upload Logo(s):</label>
+        <input type="file" id="fileUpload" accept="image/*" multiple />
+    
+        <button class="save-button-download" onclick="saveCustomizedImage()">Save Customized Image</button>
+      </div>
+    
+      <script>
+        const colorCanvas = document.getElementById('colorCanvas');
+        const ctx = colorCanvas.getContext('2d');
+        const shirtImage = document.getElementById('shirtImage');
+        const colorPicker = document.getElementById('colorPicker');
+        const fileUpload = document.getElementById('fileUpload');
+        const shirtWrapper = document.getElementById('shirtWrapper');
+    
+        shirtImage.onload = function () {
+          colorCanvas.width = shirtImage.naturalWidth;
+          colorCanvas.height = shirtImage.naturalHeight;
+          colorCanvas.style.width = shirtImage.width + 'px';
+          colorCanvas.style.height = shirtImage.height + 'px';
+          updateCanvasColor(colorPicker.value);
+        };
+    
+        function updateCanvasColor(color) {
+          ctx.fillStyle = color;
+          ctx.fillRect(0, 0, colorCanvas.width, colorCanvas.height);
+        }
+    
+        colorPicker.addEventListener('input', (event) => {
+          updateCanvasColor(event.target.value);
+        });
+    
+        fileUpload.addEventListener('change', (event) => {
+          const files = Array.from(event.target.files);
+          files.forEach(file => {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              const logo = document.createElement('img');
+              logo.src = e.target.result;
+              logo.className = 'shirt-logo';
+              logo.style.top = '30%';
+              logo.style.left = '50%';
+              logo.style.transform = 'translate(-50%, -50%)';
+              shirtWrapper.appendChild(logo);
+              makeDraggable(logo);
+            };
+            reader.readAsDataURL(file);
+          });
+        });
+    
+        function makeDraggable(el) {
+          let isDragging = false;
+          let offset = { x: 0, y: 0 };
+    
+          el.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offset = {
+              x: e.clientX - el.offsetLeft,
+              y: e.clientY - el.offsetTop
+            };
+            el.style.zIndex = 10;
+            document.body.style.userSelect = 'none';
+          });
+    
+          document.addEventListener('mouseup', () => {
+            isDragging = false;
+            document.body.style.userSelect = 'auto';
+          });
+    
+          document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+              el.style.left = `${e.clientX - offset.x}px`;
+              el.style.top = `${e.clientY - offset.y}px`;
+            }
+          });
+        }
+    
+        function saveCustomizedImage() {
+          const compositeCanvas = document.createElement('canvas');
+          const scale = shirtImage.naturalWidth / shirtImage.clientWidth;
+          compositeCanvas.width = shirtImage.naturalWidth;
+          compositeCanvas.height = shirtImage.naturalHeight;
+          const ctx = compositeCanvas.getContext('2d');
+    
+          ctx.drawImage(colorCanvas, 0, 0);
+    
+          const shirtBase = new Image();
+          shirtBase.crossOrigin = 'anonymous';
+          shirtBase.onload = () => {
+            ctx.drawImage(shirtBase, 0, 0);
+    
+            const logos = document.querySelectorAll('.shirt-logo');
+            let loadedCount = 0;
+            logos.forEach((logo, index) => {
+              const img = new Image();
+              img.onload = () => {
+                const width = logo.offsetWidth * scale;
+                const height = logo.offsetHeight * scale;
+                ctx.drawImage(img, logo.offsetLeft * scale, logo.offsetTop * scale, width, height);
+                loadedCount++;
+                if (loadedCount === logos.length) {
+                  const link = document.createElement('a');
+                  link.download = 'customized-shirt.png';
+                  link.href = compositeCanvas.toDataURL('image/png');
+                  link.click();
+                }
+              };
+              img.src = logo.src;
+            });
+          };
+          shirtBase.src = shirtImage.src;
+        }
+      </script>
+      <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling */
+        .project-body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+        }
+
+        /* Main Container Styling */
+        .project-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+
+        /* Sidebar Styling */
+        .project-sidebar {
+            width: 30%;
+            background-color: #000;  /* Black background */
+            color: white;
+            padding: 20px;
+            margin-right: 20px;
+            flex-grow: 1;
+            min-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        /* Sidebar Header */
+        .project-sidebar h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        /* Sidebar Sections */
+        .project-sidebar .project-availability,
+        .project-sidebar .project-connect,
+        .project-sidebar .project-see-our-work,
+        .project-sidebar .project-global {
+            margin-bottom: 20px;
+        }
+
+        /* Sidebar Footer */
+        .project-sidebar footer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 12px;
+        }
+
+        /* Main Form Section */
+        .project-main {
+            width: 65%;
+            padding: 20px;
+            flex-grow: 1;
+            min-width: 300px;
+        }
+
+        /* Form Section Text */
+        .form-section p {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* Form Inputs */
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Submit Button */
+        button.project-send-btn {
+            background-color: #e95840;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button.project-send-btn:hover {
+            background-color: #d84c37;
+        }
+
+        /* Black Text Class */
+        .text-black {
+            color: black;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .project-container {
+                flex-direction: column;
+            }
+
+            .project-sidebar, .project-main {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="project-body">
+    <div class="project-container">
+        <div class="project-sidebar">
+            <h1 class="text-black">START A PROJECT</h1>
+            <div class="project-availability">
+                <span class="text-black">Availability</span>
+                <p class="text-black">February 2025</p>
+            </div>
+            <div class="project-connect">
+                <span class="text-black">Connect</span>
+                <p class="text-black">hi@3200Kelvin.com</p>
+                <p class="text-black">WhatsApp</p>
+                <p class="text-black">Telegram</p>
+            </div>
+            <div class="project-see-our-work">
+                <span class="text-black">See our work</span>
+                <p class="text-black">Instagram</p>
+                <p class="text-black">Behance</p>
+                <p class="text-black">Dribbble</p>
+            </div>
+            <div class="project-global">
+                <span class="text-black">Global just like you</span>
+                <p class="text-black">Valencia, Spain 18:30</p>
+                <p class="text-black">Boston, USA 12:30</p>
+            </div>
+            <footer class="text-black">3200 Kelvin &copy; 2025</footer>
+        </div>
+
+        <div class="project-main">
+            <div class="form-section">
+                <form action="https://api.web3forms.com/submit" method="POST">
+                    <!-- Replace with your Access Key -->
+                    <input type="hidden" name="access_key" value="dedb98d0-2af0-44f5-9f02-157f93fa0a90">
+                    
+                    <p class="text-black">Hi, 3200 Kelvin team.</p>
+                    <p class="text-black">My name is <input type="text" name="name" placeholder="Jane Doe" required></p>
+                    <p class="text-black">I'm reaching out because I'm looking to design and develop a <input type="text" name="project_type" placeholder="simple and uncomplicated" required></p>
+                    <p class="text-black">for <input type="text" name="company_type" placeholder="interior design studio based in Toronto" required></p>
+                    <p class="text-black">I already have</p>
+                    <ul>
+                        <li><input type="checkbox" name="branding_style" class="text-black"> Branding style</li>
+                        <li><input type="checkbox" name="logo" class="text-black"> Logo</li>
+                        <li><input type="checkbox" name="copy" class="text-black"> Copy</li>
+                        <li><input type="checkbox" name="photos_videos" class="text-black"> Photos and videos</li>
+                        <li><input type="checkbox" name="target_audience" class="text-black"> Target audience insights</li>
+                        <li><input type="checkbox" name="marketing_research" class="text-black"> Marketing research insights</li>
+                        <li><input type="checkbox" name="brief" class="text-black"> Brief</li>
+                    </ul>
+                    <p class="text-black">My budget is <input type="text" name="budget" placeholder="EUR 5 000 - 8 000" required></p>
+                    <p class="text-black">And it would be perfect to launch the project in <input type="text" name="timeline" placeholder="3 weeks" required></p>
+                    <p class="text-black">Also, <textarea name="additional_request" placeholder="I want to add a catalog and set the payment system..." rows="3" class="text-black"></textarea></p>
+                    <p class="text-black">Please contact me via <input type="email" name="email" placeholder="janedoe@gmail.com" required></p>
+                    <button type="submit" class="project-send-btn">Submit Form</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>
+      .ub-body-custom {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+  
+      .ub-container-main {
+        text-align: center;
+        padding: 30px;
+        max-width: 1200px;
+        margin: auto;
+      }
+  
+      /* Updated visibility for header and paragraph */
+      .ub-header-main,
+      .ub-paragraph-main {
+        opacity: 1; /* Ensure they are visible */
+        transform: translateY(0); /* Remove initial offset */
+        transition: opacity 1s ease, transform 1s ease; /* Smooth transitions */
+      }
+  
+      /* Animations for header and paragraph when scrolled into view */
+      .ub-header-main.active,
+      .ub-paragraph-main.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+  
+      .ub-header-main {
+        font-size: 32px;
+        color: #000;
+        margin-bottom: 20px;
+      }
+  
+      .ub-paragraph-main {
+        font-size: 18px;
+        color: #000;
+        margin-bottom: 50px;
+      }
+  
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+  
+      .ub-card-wrapper-flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 50px;
+      }
+  
+      .ub-card-container {
+        background-color: #000;
+        color: #fff;
+        padding: 25px;
+        margin: 20px;
+        width: 250px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        opacity: 0; /* Start hidden */
+        transform: translateY(50px); /* Initial offset for animation */
+        transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition */
+      }
+  
+      .ub-card-title-custom {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 15px;
+      }
+  
+      .ub-card-description-custom {
+        font-size: 16px;
+        line-height: 1.5;
+      }
+  
+      .ub-card-container:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+  
+      .ub-card-container.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+  
+      .ub-card-container:nth-child(1) {
+        animation-delay: 0.3s;
+      }
+  
+      .ub-card-container:nth-child(2) {
+        animation-delay: 0.6s;
+      }
+  
+      .ub-card-container:nth-child(3) {
+        animation-delay: 0.9s;
+      }
+  
+      .ub-card-container:nth-child(4) {
+        animation-delay: 1.2s;
+      }
+  
+      .ub-card-container:nth-child(5) {
+        animation-delay: 1.5s;
+      }
+  
+      .ub-card-container:nth-child(6) {
+        animation-delay: 1.8s;
+      }
+  
+    </style>
+  </head>
+  <body class="ub-body-custom">
+  
+    <div class="ub-container-main">
+      <h1 class="ub-header-main">We Create Amazing Workwear Uniform And We Love What We Do!</h1>
+      <p class="ub-paragraph-main">Uniform Bucket brings the latest international trends to the market in the form of easy, comfortable, and good looking uniforms from our online store. The Uniform Bucket collections are conceived with the idea of dressing employees as the actual brand ambassadors of the company mind-set, taking into account that pricing is not an obstacle when choosing uniforms.</p>
+  
+      <div class="ub-card-wrapper-flex" id="card-section">
+        <div class="ub-card-container">
+          <h3 class="ub-card-title-custom">Unique Design</h3>
+          <p class="ub-card-description-custom">Our online uniform store collection hopes to unite every Employee with the perfect piece of clothing that they feel and look great in.</p>
+        </div>
+  
+        <div class="ub-card-container">
+          <h3 class="ub-card-title-custom">Finest Raw Material</h3>
+          <p class="ub-card-description-custom">We have been sourcing the finest raw materials from around the World, and innovating to develop luxury and good looking Uniform that are entirely unique. We don’t use any fabrics that we haven’t tested ourselves.</p>
+        </div>
+  
+        <div class="ub-card-container">
+          <h3 class="ub-card-title-custom">Assured Quality</h3>
+          <p class="ub-card-description-custom">We are a top online uniform store / uniform manufacturer, providing high quality products all the time. Every Garment goes through several Quality Checks before final Dispatch.</p>
+        </div>
+  
+        <div class="ub-card-container">
+          <h3 class="ub-card-title-custom">Country wide Dispatch</h3>
+          <p class="ub-card-description-custom">Fastest Uniform Supplier for you on your behalf, we will dispatch the uniforms to your Pan-India offices, Zonal, Regional, and Area-Wise, so that you can focus on more important aspects of your business.</p>
+        </div>
+  
+        <div class="ub-card-container">
+          <h3 class="ub-card-title-custom">Standard Sizes</h3>
+          <p class="ub-card-description-custom">We follow sizes based on International standards so that you can easily collect accurate sizes from your Pan India employees, and it sure fits all.</p>
+        </div>
+  
+        <div class="ub-card-container">
+          <h3 class="ub-card-title-custom">After Sales Support</h3>
+          <p class="ub-card-description-custom">We offer a broad range of after-sales support, which ensures top-quality standards, fast problem resolution, and the ability to establish a high brand image.</p>
+        </div>
+      </div>
+    </div>
+  
+    <script>
+      // Intersection Observer to trigger animation when elements are in the viewport
+      const observerOptions = {
+        root: null, // Use the viewport as the root
+        threshold: 0.5, // Trigger animation when 50% of the element is visible
+      };
+  
+      const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active'); // Add the class to start animation
+            observer.unobserve(entry.target); // Stop observing once animation starts
+          }
+        });
+      }, observerOptions);
+  
+      // Target the header, paragraph, and cards for animation
+      const header = document.querySelector('.ub-header-main');
+      const paragraph = document.querySelector('.ub-paragraph-main');
+      const cards = document.querySelectorAll('.ub-card-container');
+  
+      // Observe elements
+      observer.observe(header);
+      observer.observe(paragraph);
+      cards.forEach(card => {
+        observer.observe(card);
+      });
+    </script>
+    
+    <style>
+      /* General Styles */
+      .unique-body-class {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+  
+      /* Footer Container */
+      .footer-container-unique {
+        background-color: black;  /* Set background to black */
+        padding: 20px;
+        text-align: center;
+        font-size: 14px;
+        color: white;  /* Set text color to white for contrast */
+      }
+  
+      .footer-wrapper-unique {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+  
+      .footer-logo-wrapper-unique {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+  
+      .footer-logo-wrapper-unique img {
+        width: 30px;
+        height: 30px;
+      }
+  
+      .footer-logo-wrapper-unique h2 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: bold;
+        color: white;  /* Ensure the logo name text is white */
+      }
+  
+      /* Footer Contact */
+      .footer-contact-wrapper-unique {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+  
+      .footer-contact-wrapper-unique p {
+        margin: 5px 0;
+        color: white;  /* Set text color to white for contact details */
+      }
+  
+      .footer-contact-wrapper-unique span {
+        margin-right: 8px;
+      }
+  
+      /* Footer Social Icons */
+      .footer-social-wrapper-unique {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+      }
+  
+      .footer-social-wrapper-unique a {
+        text-decoration: none;
+        color: white;  /* Set link color to white */
+        font-weight: bold;
+      }
+  
+      .footer-social-wrapper-unique a:hover {
+        color: #ddd;  /* Change hover color to light gray */
+      }
+    </style>
+  </head>
+  <body class="unique-body-class">
+  
+    <!-- Footer -->
+    <footer class="footer-container-unique">
+      <div class="footer-wrapper-unique">
+        <div class="footer-logo-wrapper-unique">
+          <img src="your-logo.png" alt="Uniform lk Logo" class="footer-logo-unique">
+          <h2>UNIFORM.LK</h2>
+        </div>
+        <div class="footer-contact-wrapper-unique">
+          <p><span>📍</span> FF, C-68, Okhla Phase 1, New Delhi - 110020</p>
+          <p><span>✉️</span> corporatesales@uniformbucket.com</p>
+          <p><span>📞</span> 8860300234 | 8285309609</p>
+        </div>
+        <div class="footer-social-wrapper-unique">
+          <a href="https://wa.me/8860300234" class="footer-social-icon-unique">Whatsapp</a>
+          <a href="https://www.facebook.com" class="footer-social-icon-unique">Facebook</a>
+          <a href="https://www.twitter.com" class="footer-social-icon-unique">Twitter</a>
+          <a href="https://www.instagram.com" class="footer-social-icon-unique">Instagram</a>
+          <a href="https://www.linkedin.com" class="footer-social-icon-unique">LinkedIn</a>
+        </div>
+      </div>
+    </footer>
+  
+    
+</body>
+</html>
